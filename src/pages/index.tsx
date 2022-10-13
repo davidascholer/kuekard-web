@@ -7,7 +7,7 @@ import Background from '../components/ui/Background'
 const Home: NextPage = () => {
   const router = useRouter();
   useEffect(()=>{
-    router.replace("/SignIn");
+    // router.replace("/SignIn");
   },[])
 
   return (
