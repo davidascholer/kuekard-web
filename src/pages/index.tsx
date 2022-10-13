@@ -3,9 +3,11 @@ import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import Background from '../components/ui/Background'
 
+
 const Home: NextPage = () => {
+  const router = useRouter();
   useEffect(()=>{
-    useRouter().replace("/SignIn");
+    router.replace("/SignIn");
   },[])
 
   return (
