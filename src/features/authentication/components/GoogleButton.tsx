@@ -1,0 +1,46 @@
+import type { NextPage } from "next";
+import { useLayoutEffect, useState } from "react";
+import { useGoogleLogin } from "@react-oauth/google";
+import { GoogleLogin } from "@react-oauth/google";
+import useWindowSize from "../../../hooks/useWindowSize";
+
+const GoogleButton: NextPage = () => {
+  const [width] = useWindowSize();
+  const screenWidthSize = (ratio: number): string => {
+    return String(width * ratio);
+  };
+
+  /*
+// For use with a custom Google login button.
+  const login = useGoogleLogin({
+    onSuccess: (tokenResponse) => console.log(tokenResponse),
+    onError: () => console.log("Login Failed"),
+});
+// Return object structure:
+{"access_token": "","token_type": "","expires_in": ,"scope": "","authuser": "","prompt": ""}
+*/
+
+  return (
+    <div style={{ width: "100vw", display: "flex", justifyContent: "center" }}>
+      {" "}
+      {/* Custom login button. Note: Only retrieves an access token, not an ID token. */}
+      {/* <button onClick={() => login()}>Sign in with Google 🚀 </button> */}
+      <GoogleLogin
+        /* Return object structure: {"clientId": "","credential": "<JWT token>",select_by": ""}*/
+        onSuccess={(credentialResponse) => {
+          console.log(credentialResponse);
+        }}
+        onError={() => {
+          console.log("Login Failed");
+        }}
+        width={screenWidthSize(0.8)} //Max 400px
+        theme="outline"
+        shape="pill"
+        type="standard"
+        logo_alignment="left"
+      />
+    </div>
+  );
+};
+
+export default GoogleButton;
