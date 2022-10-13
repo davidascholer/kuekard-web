@@ -8,12 +8,13 @@ const MediaButtonList: NextPage = () => {
   const googleButtonRef = useRef();
   const [user, setUser] = useState(false);
 
-
-  
   return (
-    <GoogleOAuthProvider clientId="885298568210-cpjrvfjagtf87ndtlm6oopf10olv8aed.apps.googleusercontent.com">
-      <GoogleButton/>
-    </GoogleOAuthProvider>
+    <div>
+      {/*No need to hide clientId. Origin and redirect safe on Google backend.*/}
+      <GoogleOAuthProvider clientId="885298568210-cpjrvfjagtf87ndtlm6oopf10olv8aed.apps.googleusercontent.com">
+        <GoogleButton />
+      </GoogleOAuthProvider>
+    </div>
   );
 };
 
