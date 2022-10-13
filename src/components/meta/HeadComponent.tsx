@@ -9,7 +9,7 @@ const HeadComponent: NextPage = () => {
         <title>Kuekard</title>
         <meta name="Kuekard" content="Create your own flashcards" />
         <link rel="shortcut icon" href={favicon.src} type="image/x-icon" />
-        </Head>
+      </Head>
   )
 }
 
