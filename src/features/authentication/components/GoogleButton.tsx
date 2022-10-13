@@ -6,12 +6,14 @@ import useWindowSize from "../../../hooks/useWindowSize";
 
 const GoogleButton: NextPage = () => {
   const [width] = useWindowSize();
+  
   const screenWidthSize = (ratio: number): string => {
     return String(width * ratio);
   };
 
-  /*
+/*
 // For use with a custom Google login button.
+//  Note: Only retrieves an access token (a string), not an ID token (a JWT w user info). 
   const login = useGoogleLogin({
     onSuccess: (tokenResponse) => console.log(tokenResponse),
     onError: () => console.log("Login Failed"),
@@ -23,8 +25,10 @@ const GoogleButton: NextPage = () => {
   return (
     <div style={{ width: "100vw", display: "flex", justifyContent: "center" }}>
       {" "}
-      {/* Custom login button. Note: Only retrieves an access token, not an ID token. */}
-      {/* <button onClick={() => login()}>Sign in with Google 🚀 </button> */}
+      {
+      /* Custom login button implementation.*/
+      /* <button onClick={() => login()}>Sign in with Google 🚀 </button> */
+      }
       <GoogleLogin
         /* Return object structure: {"clientId": "","credential": "<JWT token>",select_by": ""}*/
         onSuccess={(credentialResponse) => {
