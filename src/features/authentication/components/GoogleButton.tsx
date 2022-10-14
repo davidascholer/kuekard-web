@@ -6,7 +6,7 @@ import useWindowSize from "../../../hooks/useWindowSize";
 
 const GoogleButton: NextPage = () => {
   const [width] = useWindowSize();
-  
+
   const screenWidthSize = (ratio: number): string => {
     return String(width * ratio);
   };
@@ -23,7 +23,7 @@ const GoogleButton: NextPage = () => {
 */
 
   return (
-    <div style={{ width: "100vw", display: "flex", justifyContent: "center" }}>
+    <div style={{ width: "100vw", display: "flex", justifyContent: "center", textAlign: "center" }}>
       {" "}
       {
       /* Custom login button implementation.*/
@@ -37,11 +37,7 @@ const GoogleButton: NextPage = () => {
         onError={() => {
           console.log("Login Failed");
         }}
-        width={screenWidthSize(0.8)} //Max 400px
-        theme="outline"
-        shape="pill"
-        type="standard"
-        logo_alignment="left"
+        width={screenWidthSize(0.8)}
       />
     </div>
   );
