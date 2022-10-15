@@ -5,7 +5,6 @@ import FacebookLogin from "react-facebook-login/dist/facebook-login-render-props
 
 export default function FacebookMediaLogin() {
   const facebookAppID: string = String(process.env.NEXT_PUBLIC_FACEBOOK_APPID);
-  console.log("fb: "+facebookAppID)
   const facebookColor:string = "#4064AD";
   const facebookButtonStyles:object = {
     color: "#fff",
