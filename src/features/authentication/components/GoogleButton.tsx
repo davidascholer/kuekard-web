@@ -1,45 +1,80 @@
+// For use with a default stylized Google button, use
+// import { GoogleLogin } from "@react-oauth/google";
+// For use with a custom Google login button, use
+// import { useGoogleLogin } from "@react-oauth/google";
+
 import type { NextPage } from "next";
-import { useLayoutEffect, useState } from "react";
 import { useGoogleLogin } from "@react-oauth/google";
-import { GoogleLogin } from "@react-oauth/google";
-import useWindowSize from "../../../hooks/useWindowSize";
+import { ButtonStyles } from "../util/interface";
+import GoogleIcon from "../../../assets/images/media/google_icon_64.png"
 
-const GoogleButton: NextPage = () => {
-  const [width] = useWindowSize();
+const GoogleButton: NextPage<ButtonStyles> = ({buttonStyle,imageStyle}) => {
 
-  const screenWidthSize = (ratio: number): string => {
-    return String(width * ratio);
+  /*For use with a custom Google login button.*/
+  /*
+    //  Note: Only retrieves an access token (a string), not an ID token (a JWT w user info). 
+    const login = useGoogleLogin({
+      onSuccess: (tokenResponse) => console.log(tokenResponse),
+      onError: () => console.log("Login Failed"),
+    });
+  */
+
+  // Returns and authentication response (w JWT credential).
+  interface googleLoginSuccessReturnObject {
+    clientId: string;
+    credential: string; //<JWT token>
+    select_by: string;
+  }
+
+  // Returns and authorization response (no JWT credential).
+  interface useGoogleLoginSuccessReturnObject {
+    code: string;
+    // "access_token": string;
+    // "token_type": string;
+    // "expires_in": string;
+    scope: string;
+    authuser: string;
+    prompt: string;
+  }
+
+  // Create an any type as the google type is an Omit<custom> type, though
+  // should return the googleSuccessRetornObject or useGoogleSuccessRetornObject type.
+  const googleLoginSuccessCallback = (
+    credentialResponse: useGoogleLoginSuccessReturnObject | any
+  ): void => {
+    console.log(credentialResponse);
   };
 
-/*
-// For use with a custom Google login button.
-//  Note: Only retrieves an access token (a string), not an ID token (a JWT w user info). 
-  const login = useGoogleLogin({
-    onSuccess: (tokenResponse) => console.log(tokenResponse),
-    onError: () => console.log("Login Failed"),
-});
-// Return object structure:
-{"access_token": "","token_type": "","expires_in": ,"scope": "","authuser": "","prompt": ""}
-*/
+  const googleLoginErrorCallback = (): void => {
+    console.log("failed");
+  };
 
   return (
-    <div style={{ width: "100vw", display: "flex", justifyContent: "center", textAlign: "center" }}>
-      {" "}
+    <>
+      {/* Custom login button implementation.*/}
+      <button
+        className={buttonStyle}
+        onClick={useGoogleLogin({
+          onSuccess: (codeResponse) => googleLoginSuccessCallback(codeResponse),
+          flow: "auth-code",
+          onError: () => googleLoginErrorCallback(),
+        })}
+      >
+        <span>Sign in with Google</span>
+        <img src={GoogleIcon.src} className={imageStyle}/>
+      </button>
       {
-      /* Custom login button implementation.*/
-      /* <button onClick={() => login()}>Sign in with Google 🚀 </button> */
-      }
+        // Stylized login button implementation.
+        /*
       <GoogleLogin
-        /* Return object structure: {"clientId": "","credential": "<JWT token>",select_by": ""}*/
-        onSuccess={(credentialResponse) => {
-          console.log(credentialResponse);
-        }}
-        onError={() => {
-          console.log("Login Failed");
-        }}
-        width={screenWidthSize(0.8)}
+        onSuccess={(codeResponse) => googleLoginSuccessCallback(codeResponse)}
+        onError={ () => googleLoginErrorCallback()}
+        width={screenViewWidth(80)+"px"}
+        size="medium"
       />
-    </div>
+      */
+      }
+    </>
   );
 };
 
