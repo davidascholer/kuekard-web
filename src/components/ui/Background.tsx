@@ -1,11 +1,11 @@
 import type { NextPage } from 'next'
-import styles from '../../assets/styles/background.module.scss'
+import '../../assets/styles/background.module.scss'
 import HeadComponent from '../meta/HeadComponent'
  
 const Background: NextPage = () => {
   
   return (
-    <div className={styles.body_container}>
+    <div className="body_container">
         <HeadComponent/>
     </div>
   )
