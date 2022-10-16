@@ -61,7 +61,7 @@ const GoogleButton: NextPage<ButtonStyles> = ({buttonStyle,imageStyle}) => {
         })}
       >
         <span>Sign in with Google</span>
-        <img src={GoogleIcon.src} className={imageStyle}/>
+        <img src={GoogleIcon.src} alt="Google Icon" className={imageStyle}/>
       </button>
       {
         // Stylized login button implementation.

@@ -28,7 +28,7 @@ const FacebookButton: NextPage<ButtonStyles> = ({buttonStyle,imageStyle}) => {
             className={buttonStyle}
           >
             <span>Sign In With Facebook</span>
-            <img src={FacebookIcon.src} className={imageStyle}/>
+            <img src={FacebookIcon.src} alt="Facebook Icon" className={imageStyle}/>
           </button>
         )}
       />
