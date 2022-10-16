@@ -1,0 +1,35 @@
+
+.media_container{
+  align-items: center;
+  display:flex;
+  flex-direction: column;
+  width:100vw;
+
+  .button{
+    align-items: center;
+    border-radius: 5px;
+    cursor: pointer;
+    display:flex;
+    justify-content: center;
+    margin:10px;
+    padding:1vw;
+    width:400px;
+  }
+  
+  .facebook{
+    background-color: #4064AD;
+    color:#fff;
+  }
+
+  .google{
+    color:#666;
+  }
+
+  .image{
+    height:5vw;
+    max-height:40px;
+    max-width:40px;
+    margin-left:20px;
+    width:5vw;
+  }
+}
