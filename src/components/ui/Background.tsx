@@ -1,5 +1,5 @@
 import type { NextPage } from 'next'
-import '../../assets/styles/background.module.scss'
+import '../../assets/styles/Background.module.scss'
 import HeadComponent from '../meta/HeadComponent'
  
 const Background: NextPage = () => {
