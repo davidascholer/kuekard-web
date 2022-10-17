@@ -1,0 +1,17 @@
+.form_container{
+    align-items: center;
+    display:flex;
+    flex-direction: column;
+    width:100vw;
+
+    form {
+        max-width:600px;
+        padding:5%;
+
+        >*{
+            margin-top:2vh;
+        }
+    }
+
+
+}

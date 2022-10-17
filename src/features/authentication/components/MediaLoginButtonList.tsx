@@ -1,28 +1,43 @@
 import type { NextPage } from "next";
-import { useEffect, useRef, useState } from "react";
-import jwt_decode from "jwt-decode";
 import GoogleButton from "./GoogleButton";
 import FacebookButton from "./FacebookButton";
 import { GoogleOAuthProvider } from "@react-oauth/google";
-import useWindowSize from "../../../hooks/useWindowSize";
-import styles from "../../../assets/styles/media_login_button_list.module.scss"
+import styles from "../../../assets/styles/media_login_button_list.module.scss";
 
 const MediaLoginButtonList: NextPage = () => {
-  const googleButtonRef = useRef();
-  const [user, setUser] = useState(false);
-  const [width] = useWindowSize();
+  //No need to hide the Google clientId. Origin and redirect safe on Google backend.
+  const googleClientID =
+    "885298568210-cpjrvfjagtf87ndtlm6oopf10olv8aed.apps.googleusercontent.com";
+  const facebookAppID: string = String(process.env.NEXT_PUBLIC_FACEBOOK_APPID);
 
-  // Takes in a percentage and calculates the pixel representation.
-  const screenViewWidth = (percentage: number): string => {
-    return String((width * percentage) / 100);
+  const onMediaLoginSuccess = (response: object): void => {
+    alert("success: " + JSON.stringify(response));
+  };
+
+  const onMediaLoginError = () => {
+    alert("error");
   };
 
   return (
     <div className={styles.media_container}>
-      {/*No need to hide clientId. Origin and redirect safe on Google backend.*/}
-      <GoogleOAuthProvider clientId="885298568210-cpjrvfjagtf87ndtlm6oopf10olv8aed.apps.googleusercontent.com">
-        <GoogleButton buttonStyle={`${styles.button} ${styles.google}`} imageStyle={styles.image} />
-        <FacebookButton buttonStyle={`${styles.button} ${styles.facebook}`} imageStyle={styles.image}/>
+      <GoogleOAuthProvider clientId={googleClientID}>
+        <GoogleButton
+          mediaLoginStyle={{
+            buttonStyle: `${styles.button} ${styles.google}`,
+            imageStyle: styles.image,
+          }}
+          loginSuccess={onMediaLoginSuccess}
+          loginError={onMediaLoginError}
+          />
+        <FacebookButton
+          facebookId={facebookAppID}
+          mediaLoginStyle={{
+            buttonStyle: `${styles.button} ${styles.facebook}`,
+            imageStyle: styles.image,
+          }}
+          loginSuccess={onMediaLoginSuccess}
+          loginError={onMediaLoginError}
+        />
       </GoogleOAuthProvider>
     </div>
   );
