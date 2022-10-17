@@ -5,10 +5,10 @@
 
 import type { NextPage } from "next";
 import { useGoogleLogin } from "@react-oauth/google";
-import { ButtonStyles } from "../util/interface";
+import { MediaLoginComponent } from "../util/interface";
 import GoogleIcon from "../../../assets/images/media/google_icon_64.png"
 
-const GoogleButton: NextPage<ButtonStyles> = ({buttonStyle,imageStyle}) => {
+const GoogleButton: NextPage<MediaLoginComponent> = ({mediaLoginStyle,loginSuccess,loginError}) => {
 
   /*For use with a custom Google login button.*/
   /*
@@ -42,18 +42,18 @@ const GoogleButton: NextPage<ButtonStyles> = ({buttonStyle,imageStyle}) => {
   const googleLoginSuccessCallback = (
     credentialResponse: useGoogleLoginSuccessReturnObject | any
   ): void => {
-    console.log(credentialResponse);
+    loginSuccess(credentialResponse)
   };
 
   const googleLoginErrorCallback = (): void => {
-    console.log("failed");
+    loginError()
   };
 
   return (
     <>
       {/* Custom login button implementation.*/}
       <button
-        className={buttonStyle}
+        className={mediaLoginStyle.buttonStyle}
         onClick={useGoogleLogin({
           onSuccess: (codeResponse) => googleLoginSuccessCallback(codeResponse),
           flow: "auth-code",
@@ -61,7 +61,7 @@ const GoogleButton: NextPage<ButtonStyles> = ({buttonStyle,imageStyle}) => {
         })}
       >
         <span>Sign in with Google</span>
-        <img src={GoogleIcon.src} alt="Google Icon" className={imageStyle}/>
+        <img src={GoogleIcon.src} alt="Google Icon" className={mediaLoginStyle.imageStyle}/>
       </button>
       {
         // Stylized login button implementation.
