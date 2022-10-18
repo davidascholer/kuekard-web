@@ -5,12 +5,6 @@ import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import styles from "../../assets/styles/form.module.scss";
 
-interface Values {
-  firstName: string;
-  lastName: string;
-  email: string;
-}
-
 const FormBody: NextPage = () => {
   let validationSchema = yup.object().shape({
     name: yup.string().required("enter name"),
@@ -34,6 +28,7 @@ const FormBody: NextPage = () => {
     <div className={styles.form_container}>
       <form onSubmit={formik.handleSubmit}>
         <TextField
+          className="text_field"
           fullWidth
           id="name"
           name="name"
@@ -44,6 +39,7 @@ const FormBody: NextPage = () => {
           helperText={formik.touched.name && formik.errors.name}
         />
         <TextField
+          className="text_field"
           fullWidth
           id="email"
           name="email"
@@ -54,6 +50,7 @@ const FormBody: NextPage = () => {
           helperText={formik.touched.email && formik.errors.email}
         />
         <TextField
+          className="text_field"
           fullWidth
           id="password"
           name="password"
