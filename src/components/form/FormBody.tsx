@@ -33,6 +33,7 @@ const FormBody: NextPage = () => {
           id="name"
           name="name"
           label="Name"
+          data-cy="name"
           value={formik.values.name}
           onChange={formik.handleChange}
           error={formik.touched.name && Boolean(formik.errors.name)}
@@ -44,6 +45,7 @@ const FormBody: NextPage = () => {
           id="email"
           name="email"
           label="Email"
+          data-cy="email"
           value={formik.values.email}
           onChange={formik.handleChange}
           error={formik.touched.email && Boolean(formik.errors.email)}
@@ -56,12 +58,13 @@ const FormBody: NextPage = () => {
           name="password"
           label="Password"
           type="password"
+          data-cy="password"
           value={formik.values.password}
           onChange={formik.handleChange}
           error={formik.touched.password && Boolean(formik.errors.password)}
           helperText={formik.touched.password && formik.errors.password}
         />
-        <Button color="primary" variant="contained" fullWidth type="submit">
+        <Button color="primary" variant="contained" fullWidth type="submit" data-cy="submit">
           Submit
         </Button>
       </form>

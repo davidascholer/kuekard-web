@@ -2,6 +2,7 @@ import type { NextPage } from "next";
 import { useState, useRef } from "react";
 import MediaButtonList from "../features/authentication/components/MediaLoginButtonList";
 import FormBody from "../components/form/FormBody";
+import Background from "../components/ui/Background";
 // style
 import logoStyles from "../assets/styles/logo.module.scss";
 // images
@@ -22,16 +23,16 @@ const SignIn: NextPage = () => {
   };
   
   return (
-    <div>
+    <Background>
       <div className={logoStyles.logo_container}>
         <div className={`${logoStyles.logo}`}>
           <img src={leftImage.src}/>
           <img src={rightImage.src} ref={rightCard} className={cardClasses} onClick={() => flipCard()} />
         </div>
       </div>
-      <FormBody />
+      <FormBody/>
       <MediaButtonList />
-    </div>
+    </Background>
   );
 };
 

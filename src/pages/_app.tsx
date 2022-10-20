@@ -1,3 +1,6 @@
+/*
+Entry to application.
+*/
 import '../assets/styles/globals.scss'
 import type { AppProps } from 'next/app'
 

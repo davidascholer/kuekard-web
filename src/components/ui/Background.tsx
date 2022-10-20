@@ -1,12 +1,20 @@
 import type { NextPage } from 'next'
-import '../../assets/styles/Background.module.scss'
+// Components
 import HeadComponent from '../meta/HeadComponent'
+// Styles
+import styles from '../../assets/styles/background.module.scss'
  
-const Background: NextPage = () => {
+type Props = {
+  children: JSX.Element|JSX.Element[],
+};
+
+const Background: NextPage<Props> = ({children}:Props) => {
   
   return (
-    <div className="body_container">
+    <div className={styles.body_container}>
+      test
         <HeadComponent/>
+        {children}
     </div>
   )
 }
