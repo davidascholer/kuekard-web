@@ -1,4 +1,4 @@
-describe('Login Page Tests', () => {
+describe('Login Page Journey', () => {
   beforeEach(() => {
     cy.visit('http://localhost:3000')
   })
@@ -19,3 +19,7 @@ describe('Login Page Tests', () => {
     })
   })
 })
+
+// A global file cannot be compiled using '--isolatedModules' in Typescript, which 'spec.cy.ts' is.
+// Create an export statement to turn this file into a module.
+export{}
