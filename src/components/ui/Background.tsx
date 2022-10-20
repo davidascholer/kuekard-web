@@ -2,7 +2,7 @@ import type { NextPage } from 'next'
 // Components
 import HeadComponent from '../meta/HeadComponent'
 // Styles
-import styles from '../../assets/styles/background.module.scss'
+import styles from '../../assets/styles/Background.module.scss'
  
 type Props = {
   children: JSX.Element|JSX.Element[],
