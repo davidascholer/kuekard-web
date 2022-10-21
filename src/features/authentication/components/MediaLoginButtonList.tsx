@@ -1,7 +1,9 @@
 import type { NextPage } from "next";
+import { GoogleOAuthProvider } from "@react-oauth/google";
+// Components
 import GoogleButton from "./GoogleButton";
 import FacebookButton from "./FacebookButton";
-import { GoogleOAuthProvider } from "@react-oauth/google";
+// Styles
 import styles from "../../../assets/styles/media_login_button_list.module.scss";
 
 const MediaLoginButtonList: NextPage = () => {
