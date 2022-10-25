@@ -59,6 +59,7 @@ const GoogleButton: NextPage<MediaLoginComponent> = ({mediaLoginStyle,loginSucce
           flow: "auth-code",
           onError: () => googleLoginErrorCallback(),
         })}
+        data-cy="google-login"
       >
         <span>Sign in with Google</span>
         <img src={GoogleIcon.src} alt="Google Icon" className={mediaLoginStyle.imageStyle}/>

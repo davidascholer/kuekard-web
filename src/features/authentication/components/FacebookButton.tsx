@@ -30,6 +30,7 @@ const FacebookButton: NextPage<MediaLoginComponent> = ({mediaLoginStyle,facebook
           <button
             onClick={renderProps.onClick}
             className={mediaLoginStyle.buttonStyle}
+            data-cy="facebook-login"
           >
             <span>Sign In With Facebook</span>
             <img src={FacebookIcon.src} alt="Facebook Icon" className={mediaLoginStyle.imageStyle}/>

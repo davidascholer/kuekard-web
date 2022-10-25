@@ -15,6 +15,6 @@
     "jsx": "preserve",
     "incremental": true
   },
-  "include": ["*.scss","next-env.d.ts", "**/*.ts", "**/*.tsx", "src/services/analytics.js","src/pages/*.tsx"],
+  "include": ["*.scss","next-env.d.ts", "**/*.ts", "src/features/authentication/__tests__/media_auth.cy.js", "cypress/support/component.js", "**/*.tsx", "src/services/analytics.js","src/pages/*.tsx"],
   "exclude": ["node_modules"]
 }

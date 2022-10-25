@@ -11,9 +11,10 @@ describe('Login Page Journey', () => {
         .type('John Doe')
       cy.get('[data-cy="email"]')
         .type('JohnDoe@mail.com')
-        // .should('have.value','JohnDoe@mail.com')//This fails for some reason.
+      // .should('have.value','JohnDoe@mail.com')//This fails for some reason.
       cy.get('[data-cy="password"]')
         .type('password')
+    }).then(()=>{
       cy.get('[data-cy="submit"]')
         .click()
     })
@@ -22,4 +23,4 @@ describe('Login Page Journey', () => {
 
 // A global file cannot be compiled using '--isolatedModules' in Typescript, which 'spec.cy.ts' is.
 // Create an export statement to turn this file into a module.
-export{}
+export { }
