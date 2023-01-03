@@ -24,14 +24,14 @@ const SignIn: NextPage = () => {
   
   return (
     <Background>
-      <div className={logoStyles.logo_container}>
+<!--       <div className={logoStyles.logo_container}>
         <div className={`${logoStyles.logo}`}>
           <img src={leftImage.src}/>
           <img src={rightImage.src} ref={rightCard} className={cardClasses} onClick={() => flipCard()} />
         </div>
       </div>
       <FormBody/>
-      <MediaButtonList />
+      <MediaButtonList /> -->
     </Background>
   );
 };
