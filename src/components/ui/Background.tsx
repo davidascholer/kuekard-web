@@ -12,7 +12,6 @@ const Background: NextPage<Props> = ({children}:Props) => {
   
   return (
     <div className={styles.body_container}>
-      test
         <HeadComponent/>
         {children}
     </div>
