@@ -11,7 +11,7 @@ type Props = {
 const Background: NextPage<Props> = ({children}:Props) => {
   
   return (
-    <div className={styles.body_container}>
+    <div className={styles.body_container} style={{display: "flex",justifyContent: "center", alignItems: "center"}}>
         <HeadComponent/>
         {children}
     </div>
